@@ -25,7 +25,7 @@ def send_bd(add,message):
 now = dt.datetime.now()
 day = now.weekday()
 if day==0:
-    with open("C:/Users/Vasanth M/PycharmProjects/from_16/birthday_wishes/quotes.txt",mode="r") as quotes:
+    with open("vasa1410/birthday_wishes/quotes.txt",mode="r") as quotes:
         quote = quotes.readlines()
         quote_list =[line.strip() for line in quote]
         thought = random.choice(quote_list)
@@ -34,12 +34,12 @@ if day==0:
 day = now.day
 month_now = now.month
 
-data = pandas.read_csv("C:/Users/Vasanth M/PycharmProjects/from_16/birthday_wishes/wishes.csv")
+data = pandas.read_csv("vasa-1410/birthday_wishes/wishes.csv")
 for index,row in data.iterrows():
     if row["date"]==day and row["month"] == month_now:
         name_ = row["name"]
         address = row["mail"]
-        with open("C:/Users/Vasanth M/PycharmProjects/from_16/birthday_wishes/letter_1.txt","r") as letter:
+        with open("vasa-1410/birthday_wishes/letter_1.txt","r") as letter:
             content = letter.read()
             new_letter=content.replace("[name]",name_)
         send_bd(address,new_letter)
